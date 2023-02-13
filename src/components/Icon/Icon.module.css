@@ -1,0 +1,20 @@
+.icon {
+  --md-comp-icon-size: 20px;
+  font-size: var(--md-comp-icon-size);
+}
+
+.icon.size-20 {
+  --md-comp-icon-size: 20px;
+}
+
+.icon.size-24 {
+  --md-comp-icon-size: 24px;
+}
+
+.icon.size-40 {
+  --md-comp-icon-size: 40px;
+}
+
+.icon.size-48 {
+  --md-comp-icon-size: 48px;
+}
