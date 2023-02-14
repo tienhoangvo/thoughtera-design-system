@@ -1,3 +1,86 @@
 .button {
-  color: red;
+  --md-comp-button-bg-color: darkred;
+  --md-comp-button-color: white;
+
+  background-color: var(--md-comp-button-bg-color);
+  
+  border: 0;
+  border-radius: 48px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0 24px;
+  height: 40px;
+  line-height: 20px;
+  white-space: nowrap;
+  user-select: none;
+  overflow: hidden;
+  cursor: pointer;
+
+  position: relative;
+}
+
+.button .state-overlay {
+  background-color: var(--md-comp-button-color);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+
+  transition: opacity 200ms ease-in-out;
+}
+
+.button .content {
+  color: var(--md-comp-button-color);
+  position: relative;
+  z-index: 1;
+}
+
+.button:hover .state-overlay {
+  opacity: .12;
+}
+
+.button:focus .state-overlay {
+  opacity: .12;
+}
+
+.button:disabled {
+  --md-comp-button-color: var(--md-sys-color-on-surface);
+  --md-comp-button-bg-color: unset;
+}
+
+.button:disabled .state-overlay{
+  opacity: .12;
+}
+
+.button:disabled .content{
+  opacity: 0.38;
+}
+
+/* Button with icon */
+.button:has(span[className^="material-symbols-rounded"]) {
+
+}
+
+.button.filled {
+  --md-comp-button-bg-color: var(--md-sys-color-primary);
+  --md-comp-button-color: var(--md-sys-color-on-primary);
+}
+
+.button.filled-tonal {
+  --md-comp-button-bg-color: var(--md-sys-color-secondary-container);
+  --md-comp-button-color: var(--md-sys-color-on-secondary-container);
+}
+
+.button.text {
+  --md-comp-button-bg-color: unset;
+  --md-comp-button-color: var(--md-sys-color-primary);
+  padding: 0 12px;
+}
+
+.button.outlined {
+  --md-comp-button-bg-color: unset;
+  --md-comp-button-color: var(--md-sys-color-primary);
+  border: 1px solid var(--md-sys-color-outline);
 }
