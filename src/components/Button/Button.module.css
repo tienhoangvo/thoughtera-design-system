@@ -1,8 +1,8 @@
 .button {
-  --md-comp-button-bg-color: darkred;
-  --md-comp-button-color: white;
+  --md-comp-button-bg-color: 0, 0%, 0%;
+  --md-comp-button-color: 0, 0%, 100%;
 
-  background-color: var(--md-comp-button-bg-color);
+  background-color: hsl(var(--md-comp-button-bg-color));
   
   border: 0;
   border-radius: 48px;
@@ -20,7 +20,7 @@
 }
 
 .button .state-overlay {
-  background-color: var(--md-comp-button-color);
+  background-color: hsl(var(--md-comp-button-color));
   position: absolute;
   top: 0;
   left: 0;
@@ -32,7 +32,7 @@
 }
 
 .button .content {
-  color: var(--md-comp-button-color);
+  color: hsl(var(--md-comp-button-color));
   position: relative;
   z-index: 1;
 }
@@ -71,6 +71,14 @@
 .button.filled-tonal {
   --md-comp-button-bg-color: var(--md-sys-color-secondary-container);
   --md-comp-button-color: var(--md-sys-color-on-secondary-container);
+}
+
+.button.elevated {
+  --md-comp-button-bg-color: var(--md-sys-color-surface);
+  box-shadow: var(--md-sys-elevation-1);
+  background: linear-gradient(0deg, hsla(var(--md-sys-color-primary), 0.05), hsla(var(--md-sys-color-primary), 0.05)), var(--md-sys-color-background);
+  --md-comp-button-color: var(--md-sys-color-primary);
+
 }
 
 .button.text {
