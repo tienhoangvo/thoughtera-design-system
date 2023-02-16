@@ -1,9 +1,9 @@
 .button {
-  --md-comp-button-bg-color: 0, 0%, 0%;
-  --md-comp-button-color: 0, 0%, 100%;
+  --md-comp-button-bg-color: hsl(var(--md-sys-color-surface));
+  --md-comp-button-color: hsl(var(--md-sys-color-on-surface));
 
-  background-color: hsl(var(--md-comp-button-bg-color));
-  
+  background: var(--md-comp-button-bg-color);
+
   border: 0;
   border-radius: 48px;
   font-size: 14px;
@@ -20,7 +20,7 @@
 }
 
 .button .state-overlay {
-  background-color: hsl(var(--md-comp-button-color));
+  background-color: var(--md-comp-button-color);
   position: absolute;
   top: 0;
   left: 0;
@@ -28,21 +28,21 @@
   width: 100%;
   opacity: 0;
 
-  transition: opacity 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
 }
 
 .button .content {
-  color: hsl(var(--md-comp-button-color));
+  color: var(--md-comp-button-color);
   position: relative;
   z-index: 1;
 }
 
 .button:hover .state-overlay {
-  opacity: .12;
+  opacity: 0.08;
 }
 
 .button:focus .state-overlay {
-  opacity: .12;
+  opacity: 0.12;
 }
 
 .button:disabled {
@@ -50,45 +50,60 @@
   --md-comp-button-bg-color: unset;
 }
 
-.button:disabled .state-overlay{
-  opacity: .12;
+.button:disabled .state-overlay {
+  opacity: 0.12;
 }
 
-.button:disabled .content{
+.button:disabled .content {
   opacity: 0.38;
 }
 
 /* Button with icon */
-.button:has(span[className^="material-symbols-rounded"]) {
-
+.button:has(span[className^='material-symbols-rounded']) {
 }
 
 .button.filled {
-  --md-comp-button-bg-color: var(--md-sys-color-primary);
-  --md-comp-button-color: var(--md-sys-color-on-primary);
+  --md-comp-button-bg-color: hsl(var(--md-sys-color-primary));
+  --md-comp-button-color: hsl(var(--md-sys-color-on-primary));
+}
+
+.button.filled:hover,
+.button.filled-tonal:hover {
+  box-shadow: var(--md-sys-elevation-1);
+}
+
+.button.filled:focus,
+.button.filled-tonal:focus {
+  box-shadow: none;
 }
 
 .button.filled-tonal {
-  --md-comp-button-bg-color: var(--md-sys-color-secondary-container);
-  --md-comp-button-color: var(--md-sys-color-on-secondary-container);
+  --md-comp-button-bg-color: hsl(var(--md-sys-color-secondary-container));
+  --md-comp-button-color: hsl(var(--md-sys-color-on-secondary-container));
 }
 
 .button.elevated {
-  --md-comp-button-bg-color: var(--md-sys-color-surface);
+  --md-comp-button-bg-color: var(--md-sys-surface-1);
+  --md-comp-button-color: hsl(var(--md-sys-color-primary));
   box-shadow: var(--md-sys-elevation-1);
-  background: linear-gradient(0deg, hsla(var(--md-sys-color-primary), 0.05), hsla(var(--md-sys-color-primary), 0.05)), var(--md-sys-color-background);
-  --md-comp-button-color: var(--md-sys-color-primary);
+}
 
+.button.elevated:hover {
+  box-shadow: var(--md-sys-elevation-2);
+}
+
+.button.elevated:focus {
+  box-shadow: var(--md-sys-elevation-1);
 }
 
 .button.text {
   --md-comp-button-bg-color: unset;
-  --md-comp-button-color: var(--md-sys-color-primary);
-  padding: 0 12px;
+  --md-comp-button-color: hsl(var(--md-sys-color-primary));
+  padding: 10px 12px;
 }
 
 .button.outlined {
   --md-comp-button-bg-color: unset;
-  --md-comp-button-color: var(--md-sys-color-primary);
-  border: 1px solid var(--md-sys-color-outline);
+  --md-comp-button-color: hsl(var(--md-sys-color-primary));
+  border: 1px solid hsl(var(--md-sys-color-outline));
 }

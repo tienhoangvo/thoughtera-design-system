@@ -2,8 +2,8 @@
 @import url(styles/reset.css);
 
 html {
-  background-color: var(--md-sys-color-surface);
-  color: var(--md-sys-color-on-surface);
+  background: hsl(var(--md-sys-color-surface));
+  color: hsl(var(--md-sys-color-on-surface));
 }
 
 body {

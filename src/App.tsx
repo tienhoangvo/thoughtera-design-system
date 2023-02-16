@@ -1,4 +1,4 @@
-import { ReactElement, useRef } from 'react'
+import { Fragment, ReactElement, useRef } from 'react'
 import './App.css'
 import Button, { ButtonProps } from './components/Button'
 import Table from './components/Table'
@@ -29,23 +29,17 @@ function App() {
           </TRow> */}
         </THead>
         <TBody>
-          {
-            components.map((c) => (
-              <>
+          {components.map((c) => (
+            <Fragment key={c.name}>
               {c.variants.map((variant, index, list) => (
-                <TRow>
+                <TRow key={`${c.name}-${variant}`}>
                   {index === 0 && <THeaderCell rowSpan={list.length}>{c.name}</THeaderCell>}
-                  <TBodyCell>
-                    {variant}
-                  </TBodyCell>
-                  <TBodyCell>
-                    {c.renderComponent({ variant, children: variant })}
-                  </TBodyCell>
-              </TRow>
+                  <TBodyCell>{variant}</TBodyCell>
+                  <TBodyCell>{c.renderComponent({ variant, children: variant })}</TBodyCell>
+                </TRow>
               ))}
-              </>
-            ))
-          }
+            </Fragment>
+          ))}
         </TBody>
       </Table>
     </div>
@@ -53,17 +47,17 @@ function App() {
 }
 
 type ComponentType = {
-  name: string,
-  variants: ButtonProps['variant'][],
-  renderComponent: (props:any) => ReactElement,
+  name: string
+  variants: ButtonProps['variant'][]
+  renderComponent: (props: any) => ReactElement
 }
 
 const components: ComponentType[] = [
   {
     name: 'Button',
     variants: ['filled', 'outlined', 'text', 'filled-tonal', 'elevated'],
-    renderComponent: (props: ButtonProps) => <Button {...props}>{props.children}</Button>
-  }
+    renderComponent: (props: ButtonProps) => <Button {...props}>{props.children}</Button>,
+  },
 ]
 
 export default App

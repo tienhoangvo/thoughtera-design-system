@@ -1,5 +1,5 @@
 .THeaderCell {
-  border: 1px solid var(--md-sys-color-outline);
+  border: 1px solid hsl(var(--md-sys-color-outline));
   padding: 16px 24px;
   font-weight: 500;
   text-align: left;
