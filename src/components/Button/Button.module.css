@@ -38,24 +38,34 @@
 }
 
 .button:hover .state-overlay {
-  opacity: 0.08;
+  opacity: var(--md-sys-state-hover-state-layer-opacity);
 }
 
 .button:focus .state-overlay {
-  opacity: 0.12;
+  opacity: var(--md-sys-state-focused-state-layer-opacity);
 }
 
-.button:disabled {
-  --md-comp-button-color: var(--md-sys-color-on-surface);
-  --md-comp-button-bg-color: unset;
+.button:disabled, .button.filled:disabled, .button.outlined:disabled, .button.text:disabled, .button.elevated:disabled {
+  --md-comp-button-color: hsl(var(--md-sys-state-disabled-content-color));
+  --md-comp-button-bg-color: hsl(var(--md-sys-state-disabled-content-color));
+  background: none;
+  box-shadow: none;
+}
+
+.button.outlined:disabled {
+  border-color: hsla(var(--md-sys-state-disabled-container-color), var(--md-sys-state-disabled-container-opacity));
+}
+
+.button.outlined:disabled .state-overlay, .button.text:disabled .state-overlay {
+  opacity: 0;
 }
 
 .button:disabled .state-overlay {
-  opacity: 0.12;
+  opacity: var(--md-sys-state-disabled-container-opacity);
 }
 
 .button:disabled .content {
-  opacity: 0.38;
+  opacity: var(--md-sys-state-disabled-content-opacity);
 }
 
 /* Button with icon */
@@ -72,10 +82,17 @@
   box-shadow: var(--md-sys-elevation-1);
 }
 
+.button.filled:disabled:hover,
+.button.filled-tonal:disabled:hover, .button.elevated:disabled:disabled:hover {
+  box-shadow: none;
+}
+
 .button.filled:focus,
 .button.filled-tonal:focus {
   box-shadow: none;
 }
+
+
 
 .button.filled-tonal {
   --md-comp-button-bg-color: hsl(var(--md-sys-color-secondary-container));
