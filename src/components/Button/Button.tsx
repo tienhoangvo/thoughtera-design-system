@@ -5,17 +5,25 @@ import styles from './Button.module.css'
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant: 'filled' | 'outlined' | 'text' | 'filled-tonal' | 'elevated',
   icon?: ReactNode,
-  children: ReactNode,
+  children?: ReactNode,
 }
 
-const Button = forwardRef<HTMLButtonElement, ButtonProps>(({ variant, icon, children, ...rest }, ref) => {
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(({ variant = 'filled', icon, children, className, ...rest }, ref) => {
+  let classes = [styles.button, styles[variant]]
+
+  if (icon) {
+    classes.push(styles['with-icon'])
+  }
+
+  if (className) {
+    classes.push(className)
+  }
+
   return (
-    <button ref={ref} className={clsx(styles.button, styles[variant])} {...rest}>
+    <button ref={ref} className={clsx(classes)} {...rest}>
       <div className={styles['state-overlay']} aria-hidden/>
       <div className={styles['content']}>
-        {
-          icon && <span className={styles.icon}>{icon}</span>
-        }
+        {icon && icon}
         <span className={styles.label}>{children}</span>
       </div>
     </button>

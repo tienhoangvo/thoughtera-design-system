@@ -1,6 +1,6 @@
-import { Fragment, ReactElement, useRef } from 'react'
-import './App.css'
-import Button, { ButtonProps } from './components/Button'
+import { Fragment, ReactElement } from 'react'
+import Button, { type ButtonProps } from './components/Button'
+import Icon from './components/Icon'
 import Table from './components/Table'
 import TBody from './components/Table/TBody'
 import TBodyCell from './components/Table/TBodyCell'
@@ -32,7 +32,12 @@ function App() {
                 <TRow key={`${c.name}-${variant}`}>
                   {index === 0 && <THeaderCell rowSpan={list.length}>{c.name}</THeaderCell>}
                   <TBodyCell>{variant}</TBodyCell>
-                  <TBodyCell>{c.renderComponent({ variant, children: variant })}</TBodyCell>
+                  <TBodyCell>
+                    <ul>
+                      <li>{c.renderComponent({ variant, children: variant })}</li>
+                      <li>{c.renderComponent({ variant, children: variant, icon: <Icon label='login' size={24}/> })}</li>
+                    </ul>
+                  </TBodyCell>
                   <TBodyCell>{c.renderComponent({ variant, children: variant, disabled: true })}</TBodyCell>
                 </TRow>
               ))}

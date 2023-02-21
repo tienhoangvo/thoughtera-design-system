@@ -1,21 +1,15 @@
 .button {
   --md-comp-button-bg-color: hsl(var(--md-sys-color-surface));
   --md-comp-button-color: hsl(var(--md-sys-color-on-surface));
-
   background: var(--md-comp-button-bg-color);
-
   border: 0;
-  border-radius: 48px;
-  font-size: 14px;
-  font-weight: 500;
+  border-radius: var(--md-sys-shape-corner-small);
   padding: 0 24px;
   height: 40px;
-  line-height: 20px;
   white-space: nowrap;
   user-select: none;
   overflow: hidden;
   cursor: pointer;
-
   position: relative;
 }
 
@@ -27,7 +21,6 @@
   height: 100%;
   width: 100%;
   opacity: 0;
-
   transition: all 200ms ease-in-out;
 }
 
@@ -35,6 +28,24 @@
   color: var(--md-comp-button-color);
   position: relative;
   z-index: 1;
+}
+
+.button.with-icon {
+  padding: 0 24px 0 16px;
+}
+
+.button.text.with-icon {
+  padding: 0 16px 0 12px;
+}
+
+.button.with-icon .content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.content span[class^='material-symbols-rounded'] {
+  font-size: 18px;
 }
 
 .button:hover .state-overlay {
@@ -68,10 +79,6 @@
   opacity: var(--md-sys-state-disabled-content-opacity);
 }
 
-/* Button with icon */
-.button:has(span[className^='material-symbols-rounded']) {
-}
-
 .button.filled {
   --md-comp-button-bg-color: hsl(var(--md-sys-color-primary));
   --md-comp-button-color: hsl(var(--md-sys-color-on-primary));
@@ -91,8 +98,6 @@
 .button.filled-tonal:focus {
   box-shadow: none;
 }
-
-
 
 .button.filled-tonal {
   --md-comp-button-bg-color: hsl(var(--md-sys-color-secondary-container));

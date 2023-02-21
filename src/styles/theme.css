@@ -5,3 +5,6 @@
 @import url(theme.dark.css) (prefers-color-scheme: dark);
 @import url(tokens.elevations.css);
 @import url(tokens.states.css);
+@import url(tokens.shapes.css);
+@import url(typography.css);
+
