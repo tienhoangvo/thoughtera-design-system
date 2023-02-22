@@ -1,0 +1,24 @@
+.elevated-button:disabled:hover {
+  box-shadow: none;
+}
+
+.elevated-button:disabled {
+  --md-comp-button-color: hsl(var(--md-sys-state-disabled-content-color));
+  --md-comp-button-bg-color: hsl(var(--md-sys-state-disabled-content-color));
+  background: none;
+  box-shadow: none;
+}
+
+.elevated-button {
+  --md-comp-button-bg-color: var(--md-sys-surface-1);
+  --md-comp-button-color: hsl(var(--md-sys-color-primary));
+  box-shadow: var(--md-sys-elevation-1);
+}
+
+.elevated-button:hover {
+  box-shadow: var(--md-sys-elevation-2);
+}
+
+.elevated-button:focus {
+  box-shadow: var(--md-sys-elevation-1);
+}

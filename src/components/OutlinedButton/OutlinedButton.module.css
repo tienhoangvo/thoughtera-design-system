@@ -1,0 +1,20 @@
+.outlined-button {
+  --md-comp-button-bg-color: unset;
+  --md-comp-button-color: hsl(var(--md-sys-color-primary));
+  border: 1px solid hsl(var(--md-sys-color-outline));
+}
+
+.outlined-button:disabled {
+  --md-comp-button-color: hsl(var(--md-sys-state-disabled-content-color));
+  --md-comp-button-bg-color: hsl(var(--md-sys-state-disabled-content-color));
+  background: none;
+  box-shadow: none;
+}
+
+.outlined-button:disabled {
+  border-color: hsla(var(--md-sys-state-disabled-container-color), var(--md-sys-state-disabled-container-opacity));
+}
+
+.outlined-button:disabled :global(.state-overlay) {
+  opacity: 0;
+}

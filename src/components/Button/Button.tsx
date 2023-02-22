@@ -3,16 +3,15 @@ import { ButtonHTMLAttributes, forwardRef, ReactNode } from 'react'
 import styles from './Button.module.css'
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant: 'filled' | 'outlined' | 'text' | 'filled-tonal' | 'elevated',
   icon?: ReactNode,
   children?: ReactNode,
 }
 
-const Button = forwardRef<HTMLButtonElement, ButtonProps>(({ variant = 'filled', icon, children, className, ...rest }, ref) => {
-  let classes = [styles.button, styles[variant]]
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(({ icon, children, className, ...rest }, ref) => {
+  let classes = [styles.button]
 
   if (icon) {
-    classes.push(styles['with-icon'])
+    classes.push('with-icon')
   }
 
   if (className) {
@@ -21,10 +20,10 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(({ variant = 'filled',
 
   return (
     <button ref={ref} className={clsx(classes)} {...rest}>
-      <div className={styles['state-overlay']} aria-hidden/>
-      <div className={styles['content']}>
+      <div className='state-overlay' aria-hidden/>
+      <div className='content'>
         {icon && icon}
-        <span className={styles.label}>{children}</span>
+        <span className='label'>{children}</span>
       </div>
     </button>
   )
