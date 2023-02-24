@@ -1,7 +1,53 @@
 .badge {
-  
+  position: relative;
+  --md-comp-badge-shape-corner-small: 3px;
+  --md-comp-badge-size-small: 6px;
+  --md-comp-badge-gap-small: 100%;
+  --md-comp-badge-shape-corner-large: 16px;
+  --md-comp-badge-size-large: 16px;
+  --md-comp-badge-size-large-max: 32px;
+  --md-comp-badge-gap-large: 12px;
+  --md-comp-badge-padding-large: 4px;
 }
 
-.badge.small {
-  
+.badge :global(.label) {
+  background-color: hsl(var(--md-sys-color-error));
+  color: hsl(var(--md-sys-color-on-error));
+  position: absolute;
+  box-sizing: border-box;
+  display: block;
+}
+
+.badge.small :global(.label) {
+  block-size: var(--md-comp-badge-size-small);
+  inline-size: var(--md-comp-badge-size-small);
+  border-radius: var(--md-comp-badge-shape-corner-small);
+  bottom: var(--md-comp-badge-gap-small);
+  left: var(--md-comp-badge-gap-small);
+}
+
+.badge.large :global(.label) {
+  block-size: var(--md-comp-badge-size-large);
+  min-inline-size: var(--md-comp-badge-size-large);
+  max-inline-size: var(--md-comp-badge-size-large-max);
+  border-radius: var(--md-sys-shape-corner-full);
+  bottom: var(--md-comp-badge-gap-large);
+  left: var(--md-comp-badge-gap-large);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: clip;
+  text-align: center;
+  vertical-align: middle;
+  padding-inline: var(--md-comp-badge-padding-large);
+  font-family: var(--md-sys-typescale-label-small-font-family-name);
+  font-weight: var(--md-sys-typescale-label-small-font-weight);
+  font-size: var(--md-sys-typescale-label-small-font-size);
+  line-height: var(--md-sys-typescale-label-small-line-height);
+  letter-spacing: var(--md-sys-typescale-label-small-letter-spacing);
+}
+
+.badge.no-icon :global(.label) {
+  position: relative;
+  bottom: unset;
+  left: unset;
 }

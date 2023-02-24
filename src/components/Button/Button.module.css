@@ -11,6 +11,8 @@
   overflow: hidden;
   cursor: pointer;
   position: relative;
+
+  transition: all 200ms ease-in-out;
 }
 
 .button :global(.state-overlay) {

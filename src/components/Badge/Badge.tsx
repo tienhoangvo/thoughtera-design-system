@@ -1,16 +1,29 @@
-import { ReactNode } from "react"
+import clsx from "clsx"
+import { HTMLAttributes, ReactNode } from "react"
+import styles from './Badge.module.css'
 
-
-export type BadgeProps = {
+export type BadgeProps = HTMLAttributes<HTMLSpanElement> & {
   children?: ReactNode,
-  label?: string
+  label?: string,
+  variant: 'small' | 'large'
 }
 
-const Badge = ({ children, label } : BadgeProps) => {
+const Badge = ({ variant, className, children, label } : BadgeProps) => {
+
+  const classes = [styles['badge'], styles[variant]]
+
+  if (className) {
+    classes.push(className)
+  }
+
+  if (!children) {
+    classes.push(styles['no-icon'])
+  }
+
   return (
-    <span>
+    <span className={clsx(classes)}>
       {children}
-      <span>{label}</span>
+      <span className="label">{label}</span>
     </span>
   )
 }

@@ -1,6 +1,8 @@
 import { Fragment, ReactElement } from 'react'
+import Badge from './components/Badge'
 import Button, { type ButtonProps } from './components/Button'
 import ElevatedButton from './components/ElevatedButton'
+import FAB from './components/FAB'
 import FilledButton from './components/FilledButton'
 import Icon from './components/Icon'
 import List from './components/List'
@@ -23,14 +25,14 @@ function App() {
         <TCaption>Thoughtera components</TCaption>
         <THead>
           <TRow>
-            <THeaderCell rowSpan={2}>Component</THeaderCell>
-            <THeaderCell rowSpan={2}>Variant</THeaderCell>
-            <THeaderCell colSpan={2}>UI</THeaderCell>
+            <THeaderCell>Component</THeaderCell>
+            <THeaderCell>Variant</THeaderCell>
+            <THeaderCell>UI</THeaderCell>
           </TRow>
-          <TRow>
+          {/* <TRow>
             <THeaderCell>States</THeaderCell>
             <THeaderCell>Disabled</THeaderCell>
-          </TRow>
+          </TRow> */}
         </THead>
         <TBody>
           {components.map((c) => (
@@ -40,12 +42,8 @@ function App() {
                   {index === 0 && <THeaderCell rowSpan={list.length}>{c.name}</THeaderCell>}
                   <TBodyCell>{variant}</TBodyCell>
                   <TBodyCell>
-                    <List>
-                      <ListItem>{c.renderComponent(variant, { children: variant })}</ListItem>
-                      <ListItem>{c.renderComponent(variant, { children: variant, icon: <Icon label='login'/> })}</ListItem>
-                    </List>
+                    {c.renderComponent(variant, {})}
                   </TBodyCell>
-                  <TBodyCell>{c.renderComponent(variant, { children: variant, disabled: true })}</TBodyCell>
                 </TRow>
               ))}
             </Fragment>
@@ -67,25 +65,85 @@ const components: ComponentType[] = [
     name: 'Button',
     variants: ['filled', 'outlined', 'text', 'tonal', 'elevated'],
     renderComponent: (variant: string, props: ButtonProps) => {
-      switch(variant) {
+      switch (variant) {
         case 'filled': {
-          return <FilledButton {...props} />
+          return (
+            <List>
+              <ListItem>
+                <FilledButton {...props} children="filled" />
+              </ListItem>
+              <ListItem>
+                <FilledButton icon={<Icon label='login'/>} {...props} children="filled"/>
+              </ListItem>
+              <ListItem>
+                <FilledButton icon={<Icon label='login'/>} {...props} children="filled" disabled/>
+              </ListItem>
+            </List>
+          )
         }
 
         case 'outlined': {
-          return <OutlinedButton {...props} />
+          return (
+            <List>
+              <ListItem>
+                <OutlinedButton {...props} children="outlined" />
+              </ListItem>
+              <ListItem>
+                <OutlinedButton icon={<Icon label='login'/>} {...props} children="outlined"/>
+              </ListItem>
+              <ListItem>
+                <OutlinedButton icon={<Icon label='login'/>} {...props} children="outlined" disabled/>
+              </ListItem>
+            </List>
+          )
         }
 
         case 'text': {
-          return <TextButton {...props}/>
+          return (
+            <List>
+              <ListItem>
+                <TextButton {...props} children="text"/>
+              </ListItem>
+              <ListItem>
+                <TextButton icon={<Icon label='login'/>} {...props} children="text"/>
+              </ListItem>
+              <ListItem>
+                <TextButton icon={<Icon label='login'/>} {...props} disabled children="text"/>
+              </ListItem>
+            </List>
+          )
         }
 
         case 'tonal': {
-          return <TonalButton {...props}/>
+          return (
+            <List>
+              <ListItem>
+                <TonalButton {...props} children="tonal"/>
+              </ListItem>
+              <ListItem>
+                <TonalButton icon={<Icon label='login'/>} {...props} children="tonal"/>
+              </ListItem>
+              <ListItem>
+                <TonalButton icon={<Icon label='login'/>} {...props} disabled children="tonal"/>
+              </ListItem>
+            </List>
+          )
         }
 
         case 'elevated': {
-          return <ElevatedButton {...props}/>
+          return (
+            <List>
+              <ListItem>
+                <ElevatedButton {...props} children="elevated"/>
+              </ListItem>
+              <ListItem>
+                <ElevatedButton icon={<Icon label='login'/>} {...props} children="elevated"/>
+              </ListItem>
+              <ListItem>
+                <ElevatedButton icon={<Icon label='login'/>} {...props} disabled children="elevated"/>
+              </ListItem>
+            </List>
+          )
         }
         default: {
           return <Button {...props} />
@@ -93,6 +151,118 @@ const components: ComponentType[] = [
       }
     },
   },
+
+  {
+    name: 'Badge',
+    variants: ['small', 'large'],
+    renderComponent: (variant, props) => {
+      switch (variant) {
+        case 'large': {
+          return (
+            <List>
+              <ListItem>
+                <Badge variant={variant} {...props} label="1">
+                  <Icon label="chat" />
+                </Badge>
+              </ListItem>
+              <ListItem>
+                <Badge variant={variant} {...props} label="99">
+                  <Icon label="chat" />
+                </Badge>
+              </ListItem>
+              <ListItem>
+                <Badge variant={variant} {...props} label="999+">
+                  <Icon label="chat" />
+                </Badge>
+              </ListItem>
+              <ListItem>
+                <Badge variant={variant} {...props} label="999+" />
+              </ListItem>
+            </List>
+          )
+        }
+
+        default: {
+          return (
+            <List>
+              <ListItem>
+                <Badge variant={variant} {...props}>
+                  <Icon label="chat" />
+                </Badge>
+              </ListItem>
+            </List>
+            
+          )
+        }
+      }
+    },
+  },
+
+  {
+    name: 'FAB',
+    variants: ['small', 'default', 'large'],
+    renderComponent: (variant, props) => {
+      switch(variant) {
+
+        case 'large': {
+          return (
+            <List>
+              <ListItem>
+                <FAB size="large" color="primary" {...props} icon={<Icon label='edit'/>} />
+              </ListItem>
+              <ListItem>
+                <FAB size="large" color="secondary" {...props} icon={<Icon label='edit'/>} />
+              </ListItem>
+              <ListItem>
+                <FAB size="large" color="tertiary" {...props} icon={<Icon label='edit'/>} />
+              </ListItem>
+              <ListItem>
+                <FAB size="large" color="surface" {...props} icon={<Icon label='edit'/>} />
+              </ListItem>
+            </List>
+            
+          )
+        }
+
+        case 'small': {
+          return (
+            <List>
+              <ListItem>
+                <FAB size="small" color="primary" {...props} icon={<Icon label='edit'/>} />
+              </ListItem>
+              <ListItem>
+                <FAB size="small" color="secondary" {...props} icon={<Icon label='edit'/>} />
+              </ListItem>
+              <ListItem>
+                <FAB size="small" color="tertiary" {...props} icon={<Icon label='edit'/>} />
+              </ListItem>
+              <ListItem>
+                <FAB size="small" color="surface" {...props} icon={<Icon label='edit'/>} />
+              </ListItem>
+            </List>
+          )
+        }
+        default: {
+          return (
+            <List>
+              <ListItem>
+                <FAB color="primary" {...props} icon={<Icon label='edit'/>} />
+              </ListItem>
+              <ListItem>
+                <FAB color="secondary" {...props} icon={<Icon label='edit'/>} />
+              </ListItem>
+              <ListItem>
+                <FAB color="tertiary" {...props} icon={<Icon label='edit'/>} />
+              </ListItem>
+              <ListItem>
+                <FAB color="surface" {...props} icon={<Icon label='edit'/>} />
+              </ListItem>
+            </List>
+          )
+        }
+      }
+    }
+  }
 ]
 
 export default App
