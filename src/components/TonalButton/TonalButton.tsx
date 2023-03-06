@@ -1,11 +1,11 @@
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import Button, { ButtonProps } from '../Button'
-import styles from './TonalButton.module.css'
+import styles from './TonalButton.module.scss'
 
 export type TonalButtonProps = ButtonProps
 
-const TonalButton = forwardRef<HTMLButtonElement, TonalButtonProps>(
+const TonalButton = forwardRef<HTMLButtonElement & { test: () => void}, TonalButtonProps>(
   ({ className, children, ...rest }, ref) => {
     let classes = [styles['tonal-button']]
 

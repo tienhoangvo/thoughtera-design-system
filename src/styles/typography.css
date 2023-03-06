@@ -85,13 +85,13 @@ a:hover:focus {
   color: hsl(var(--md-sys-color-on-primary-container));
 }
 
-button {
+/* button {
   font-family: var(--md-sys-typescale-label-large-font-family-name);
   font-weight: var(--md-sys-typescale-label-large-font-weight);
   font-size: var(--md-sys-typescale-label-large-font-size);
   line-height: var(--md-sys-typescale-label-large-font-line-height);
   letter-spacing: var(--md-sys-typescale-label-large-letter-spacing);
-}
+} */
 
 @media screen and (max-width: 600px) {
   body {
@@ -158,13 +158,13 @@ button {
     letter-spacing: var(--md-sys-typescale-title-medium-letter-spacing);
   }
 
-  button {
+  /* button {
     font-family: var(--md-sys-typescale-label-large-font-family-name);
     font-weight: var(--md-sys-typescale-label-large-font-weight);
     font-size: var(--md-sys-typescale-label-large-font-size);
     line-height: var(--md-sys-typescale-label-large-font-line-height);
     letter-spacing: var(--md-sys-typescale-label-large-letter-spacing);
-  }
+  } */
 }
 
 @media screen and (min-width: 601px) and (max-width: 1294px) {
@@ -232,11 +232,11 @@ button {
     letter-spacing: var(--md-sys-typescale-title-medium-letter-spacing);
   }
 
-  button {
+  /* button {
     font-family: var(--md-sys-typescale-label-large-font-family-name);
     font-weight: var(--md-sys-typescale-label-large-font-weight);
     font-size: var(--md-sys-typescale-label-large-font-size);
     line-height: var(--md-sys-typescale-label-large-font-line-height);
     letter-spacing: var(--md-sys-typescale-label-large-letter-spacing);
-  }
+  } */
 }

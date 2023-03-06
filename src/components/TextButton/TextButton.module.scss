@@ -1,0 +1,20 @@
+.text-button {
+  --md-text-button-content-color: var(--md-sys-color-primary);
+
+  padding: 10px 12px;
+
+  &:global(.with-icon) {
+    padding: 0 16px 0 12px;
+  }
+  
+  :global(.content) {
+    color: hsl(var(--md-text-button-content-color));
+  }
+  :global(.state-overlay) {
+    background: hsl(var(--md-text-button-content-color));
+  }
+  
+  &:disabled {
+    background: none;
+  }
+}

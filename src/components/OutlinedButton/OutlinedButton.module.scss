@@ -1,0 +1,19 @@
+.outlined-button {
+  --md-outlined-button-container-color: var(--md-sys-color-outline);
+  --md-outlined-button-content-color: var(--md-sys-color-primary);
+  border: 1px solid hsl(var(--md-outlined-button-container-color));
+  
+  :global(.content) {
+    color: hsl(var(--md-outlined-button-content-color));
+  }
+  :global(.state-overlay) {
+    background: hsl(var(--md-outlined-button-content-color));
+  }
+  
+  &:disabled {
+    border: 1px solid hsla(var(--md-outlined-button-container-color), 12%);
+    :global(.state-overlay) {
+      opacity: 0;
+    }
+  }
+}

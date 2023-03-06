@@ -1,6 +1,8 @@
 import clsx from 'clsx'
 import { ButtonHTMLAttributes, forwardRef, ReactNode } from 'react'
-import styles from './Button.module.css'
+import ButtonBase from '../ButtonBase'
+import ElevatedButton from '../ElevatedButton'
+import styles from './Button.module.scss'
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   icon?: ReactNode,
@@ -19,13 +21,13 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(({ icon, children, cla
   }
 
   return (
-    <button ref={ref} className={clsx(classes)} {...rest}>
+    <ButtonBase ref={ref} className={clsx(classes)} {...rest}>
       <div className='state-overlay' aria-hidden/>
       <div className='content'>
         {icon && icon}
         <span className='label'>{children}</span>
       </div>
-    </button>
+    </ButtonBase>
   )
 })
 

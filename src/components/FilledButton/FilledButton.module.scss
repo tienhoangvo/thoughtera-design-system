@@ -1,0 +1,26 @@
+.filled-button {
+  --md-filled-button-container-color: var(--md-sys-color-primary);
+  --md-filled-button-content-color: var(--md-sys-color-on-primary);
+
+  background: hsl(var(--md-filled-button-container-color));
+  
+  :global(.content) {
+    color: hsl(var(--md-filled-button-content-color));
+  }
+  :global(.state-overlay) {
+    background: hsl(var(--md-filled-button-content-color));
+  }
+
+  &:hover {
+    box-shadow: var(--md-sys-elevation-1);
+  }
+
+  &:focus {
+    box-shadow: none;
+  }
+  
+  &:disabled {
+    box-shadow: none;
+    background: none;
+  }
+}

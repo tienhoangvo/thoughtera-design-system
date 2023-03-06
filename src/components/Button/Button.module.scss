@@ -1,0 +1,72 @@
+@import url("./Button.layout.css");
+@import url("./Button.typography.css");
+
+.button {
+  block-size: var(--md-button-container-height);
+  cursor: pointer;
+  position: relative;
+  border-radius: var(--md-button-container-shape);
+  overflow: hidden;
+  border: none;
+  background: unset;
+  padding: var(--md-button-padding-without-icon);
+  transition: box-shadow 200ms ease;
+
+  :global(.content) {
+    display: flex;
+    gap: var(--md-button-content-elements-gap);
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  &:global(.with-icon) {
+    padding: var(--md-button-padding-with-icon);
+  }
+
+  & :global(.material-symbols-rounded) {
+    font-size: var(--md-button-icon-size);
+    box-sizing: border-box;
+  }
+
+  & :global(.state-overlay) {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    opacity: 0;
+    block-size: 100%;
+    inline-size: 100%;
+    transition: opacity 200ms ease;
+  }
+
+  &:hover {
+    :global(.state-overlay) {
+      opacity: var(--md-sys-state-hover-state-layer-opacity)
+    }
+  }
+
+  &:focus {
+    :global(.state-overlay) {
+      opacity: var(--md-sys-state-focused-state-layer-opacity)
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid hsl(var(--md-sys-color-on-surface));
+    outline-offset: 1px;
+  }
+
+  &:disabled {
+    :global(.state-overlay) {
+      background: hsl(var(--md-sys-state-disabled-container-color));
+      opacity: 12%;
+    }
+
+    :global(.content) {
+      color: hsl(var(--md-sys-state-disabled-container-color));
+      opacity: 32%;
+    }
+
+    cursor: not-allowed;
+  }
+}

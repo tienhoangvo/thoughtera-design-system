@@ -1,7 +1,7 @@
 import clsx from "clsx"
 import { forwardRef } from "react"
 import Button, { type ButtonProps } from "../Button"
-import styles from './TextButton.module.css'
+import styles from './TextButton.module.scss'
 
 export type TextButtonProps = ButtonProps
 

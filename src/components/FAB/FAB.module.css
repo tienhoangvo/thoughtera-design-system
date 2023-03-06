@@ -101,8 +101,8 @@
 }
 
 .fab.surface {
-  --md-comp-fab-container-color: var(--md-sys-color-surface-container);
-  --md-comp-fab-icon-color: var(--md-sys-color-on-surface-container);
+  --md-comp-fab-container-color: var(--md-sys-color-surface);
+  --md-comp-fab-icon-color: var(--md-sys-color-primary);
 }
 
 .fab.primary {

@@ -1,0 +1,10 @@
+button {
+  --md-button-container-height: 40px;
+  --md-button-container-shape: 20px;
+  --md-button-icon-size: 18px;
+  --md-button-padding-without-icon: 0 24px 0 24px;
+  --md-button-padding-with-icon: 0 24px 0 16px;
+  --md-button-content-elements-gap: 8px;
+  --md-button-label-text-alignment: center;
+  box-sizing: border-box;
+}

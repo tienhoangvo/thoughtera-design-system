@@ -1,0 +1,26 @@
+.tonal-button {
+  --md-tonal-button-container-color: var(--md-sys-color-secondary-container);
+  --md-tonal-button-content-color: var(--md-sys-color-on-secondary-container);
+
+  background: hsl(var(--md-tonal-button-container-color));
+  
+  :global(.content) {
+    color: hsl(var(--md-tonal-button-content-color));
+  }
+  :global(.state-overlay) {
+    background: hsl(var(--md-tonal-button-content-color));
+  }
+
+  &:hover {
+    box-shadow: var(--md-sys-elevation-1);
+  }
+
+  &:focus {
+    box-shadow: none;
+  }
+  
+  &:disabled {
+    box-shadow: none;
+    background: none;
+  }
+}

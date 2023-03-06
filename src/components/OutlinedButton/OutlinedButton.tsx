@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { forwardRef } from 'react'
 import Button, { ButtonProps } from '../Button'
-import styles from './OutlinedButton.module.css'
+import styles from './OutlinedButton.module.scss'
 
 export type OutlinedButtonProps = ButtonProps
 

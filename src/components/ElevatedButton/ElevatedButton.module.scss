@@ -1,0 +1,24 @@
+.elevated-button {
+  --md-elevated-button-container-color: var(--md-sys-surface-1);
+  --md-elevated-button-content-color: var(--md-sys-color-primary);
+  box-shadow: var(--md-sys-elevation-1);
+  
+  :global(.content) {
+    color: hsl(var(--md-elevated-button-content-color));
+  }
+  :global(.state-overlay) {
+    background: hsl(var(--md-elevated-button-content-color));
+  }
+
+  &:hover {
+    box-shadow: var(--md-sys-elevation-2);
+  }
+
+  &:focus {
+    box-shadow: var(--md-sys-elevation-1);
+  }
+  
+  &:disabled {
+    box-shadow: none;
+  }
+}
