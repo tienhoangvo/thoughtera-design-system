@@ -16,5 +16,9 @@
   
   &:disabled {
     background: none;
+
+    :global(.state-overlay) {
+      background: none;
+    }
   }
 }

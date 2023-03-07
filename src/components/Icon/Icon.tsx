@@ -1,9 +1,10 @@
 import { clsx } from 'clsx'
 import { forwardRef, HTMLAttributes, useMemo } from 'react'
 import styles from './Icon.module.css'
+import IconLabelType from './IconLabelType'
 
 export type IconProps = HTMLAttributes<HTMLSpanElement> & {
-  label: string
+  label: IconLabelType
   size?: 20 | 24 | 40 | 48
 }
 
@@ -14,6 +15,7 @@ const Icon = forwardRef<HTMLSpanElement, IconProps>(({ label, size, className },
       ? clsx(defaultClassname, className)
       : defaultClassname
   }, [className])
+
 
   return (
     <span

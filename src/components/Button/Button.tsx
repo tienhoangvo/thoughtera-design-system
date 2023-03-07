@@ -1,7 +1,6 @@
 import clsx from 'clsx'
 import { ButtonHTMLAttributes, forwardRef, ReactNode } from 'react'
 import ButtonBase from '../ButtonBase'
-import ElevatedButton from '../ElevatedButton'
 import styles from './Button.module.scss'
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {

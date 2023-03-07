@@ -1,0 +1,41 @@
+.fab {
+  --md-fab-container-elevation: var(--md-sys-elevation-3);
+  box-shadow: var(--md-fab-container-elevation);
+  transition: box-shadow 200ms ease;
+
+  :global(.state-overlay) {
+    opacity: 0;
+    transition: opacity 200ms ease;
+  }
+
+  &:hover {
+    --md-fab-container-elevation: var(--md-sys-elevation-4);
+    :global(.state-overlay) {
+      opacity: 8%;
+    }
+  }
+
+  &:focus {
+    --md-fab-container-elevation: var(--md-sys-elevation-3);
+    :global(.state-overlay) {
+      opacity: 12%;
+    }
+  }
+
+  &:focus-visible {
+    outline-color: var(--md-sys-color-surface);
+    outline-offset: 1px;
+  }
+}
+
+.elevation-lowered {
+  --md-fab-container-elevation: var(--md-sys-elevation-1);
+
+  &:hover {
+    --md-fab-container-elevation: var(--md-sys-elevation-2);
+  }
+
+  &:focus {
+    --md-fab-container-elevation: var(--md-sys-elevation-1);
+  }
+}

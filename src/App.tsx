@@ -208,16 +208,16 @@ const components: ComponentType[] = [
           return (
             <List>
               <ListItem>
-                <FAB size="large" color="primary" {...props} icon={<Icon label='edit'/>} />
+                <FAB loweredElevation size="large" color="primary" {...props} icon={<Icon label='edit'/>} />
               </ListItem>
               <ListItem>
-                <FAB size="large" color="secondary" {...props} icon={<Icon label='edit'/>} />
+                <FAB loweredElevation size="large" color="secondary" {...props} icon={<Icon label='edit'/>} />
               </ListItem>
               <ListItem>
-                <FAB size="large" color="tertiary" {...props} icon={<Icon label='edit'/>} />
+                <FAB loweredElevation size="large" color="tertiary" {...props} icon={<Icon label='edit'/>} />
               </ListItem>
               <ListItem>
-                <FAB size="large" color="surface" {...props} icon={<Icon label='edit'/>} />
+                <FAB loweredElevation size="large" color="surface" {...props} icon={<Icon label='edit'/>} />
               </ListItem>
             </List>
             
@@ -228,16 +228,16 @@ const components: ComponentType[] = [
           return (
             <List>
               <ListItem>
-                <FAB size="small" color="primary" {...props} icon={<Icon label='edit'/>} />
+                <FAB loweredElevation size="small" color="primary" {...props} icon={<Icon label='edit'/>} />
               </ListItem>
               <ListItem>
-                <FAB size="small" color="secondary" {...props} icon={<Icon label='edit'/>} />
+                <FAB loweredElevation size="small" color="secondary" {...props} icon={<Icon label='edit'/>} />
               </ListItem>
               <ListItem>
-                <FAB size="small" color="tertiary" {...props} icon={<Icon label='edit'/>} />
+                <FAB loweredElevation size="small" color="tertiary" {...props} icon={<Icon label='edit'/>} />
               </ListItem>
               <ListItem>
-                <FAB size="small" color="surface" {...props} icon={<Icon label='edit'/>} />
+                <FAB loweredElevation size="small" color="surface" {...props} icon={<Icon label='edit'/>} />
               </ListItem>
             </List>
           )
