@@ -1,0 +1,30 @@
+.icon-button {
+  --md-icon-button-icon-size: 24px;
+  --md-icon-button-container-size: 40px;
+  --md-icon-button-target-size: 48px;
+
+  inline-size: var(--md-icon-button-container-size);
+  block-size: var(--md-icon-button-container-size);
+  border-radius: calc(var(--md-icon-button-container-size)/ 2);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+
+  :global {
+    .state-overlay {
+      position: absolute;
+      block-size: 100%;
+      inline-size: 100%;
+      background: red;
+      left: 0;
+      bottom: 0;
+      opacity: 0;
+    }
+    .material-symbols-rounded {
+      font-size: var(--md-icon-button-icon-size)
+    }
+  }
+}

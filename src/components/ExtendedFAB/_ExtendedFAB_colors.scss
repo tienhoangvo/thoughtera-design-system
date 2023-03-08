@@ -1,0 +1,35 @@
+.extended-fab {
+  --md-extended-fab-container-color: var(--md-sys-color-primary-container);
+  --md-extended-fab-content-color: var(--md-sys-color-on-primary-container);
+
+  background: hsl(var(--md-extended-fab-container-color));
+
+  :global {
+    .state-overlay {
+      background: hsl(var(--md-extended-fab-content-color));
+    }
+    .label, .material-symbols-rounded {
+      color: hsl(var(--md-extended-fab-content-color))
+    }
+  }
+}
+
+.color-primary {
+  --md-extended-fab-container-color: var(--md-sys-color-primary-container);
+  --md-extended-fab-content-color: var(--md-sys-color-on-primary-container);
+}
+
+.color-surface {
+  --md-extended-fab-container-color: var(--md-sys-color-surface);
+  --md-extended-fab-content-color: var(--md-sys-color-primary);
+}
+
+.color-secondary {
+  --md-extended-fab-container-color: var(--md-sys-color-secondary-container);
+  --md-extended-fab-content-color: var(--md-sys-color-on-secondary-container);
+}
+
+.color-tertiary {
+  --md-extended-fab-container-color: var(--md-sys-color-tertiary-container);
+  --md-extended-fab-content-color: var(--md-sys-color-on-tertiary-container);
+}

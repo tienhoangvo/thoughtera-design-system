@@ -1,0 +1,39 @@
+.extended-fab {
+  --md-extended-fab-container-height: 56px;
+  --md-extended-fab-container-min-width: 80px;
+  --md-extended-fab-container-shape: 16px;
+  --md-extended-fab-icon-size: 24px;
+  --md-extended-fab-padding: 16px;
+
+  position: relative;
+  box-sizing: border-box;
+  border-radius: var(--md-extended-fab-container-shape);
+  overflow: hidden;
+  block-size: var(--md-extended-fab-container-height);
+  min-inline-size: var(--md-extended-fab-container-min-width);
+  padding: 0 24px 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  border: unset;
+
+
+  :global(.state-overlay) {
+    background-color: red;
+    block-size: 100%;
+    inline-size: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    opacity: 0;
+  }
+
+  :global(.label), :global(.material-symbols-rounded) {
+    position: relative;
+  }
+
+  :global(.material-symbols-rounded) {
+    font-size: var(--md-extended-fab-icon-size);
+  }
+}

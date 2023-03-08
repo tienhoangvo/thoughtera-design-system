@@ -1,10 +1,12 @@
-import { Fragment, ReactElement } from 'react'
+import { Fragment, ReactElement, ReactNode } from 'react'
 import Badge from './components/Badge'
 import Button, { type ButtonProps } from './components/Button'
 import ElevatedButton from './components/ElevatedButton'
+import ExtendedFAB from './components/ExtendedFAB/ExtendedFAB'
 import FAB from './components/FAB'
 import FilledButton from './components/FilledButton'
 import Icon from './components/Icon'
+import IconButton from './components/IconButton'
 import List from './components/List'
 import ListItem from './components/List/ListItem'
 import OutlinedButton from './components/OutlinedButton'
@@ -41,9 +43,7 @@ function App() {
                 <TRow key={`${c.name}-${variant}`}>
                   {index === 0 && <THeaderCell rowSpan={list.length}>{c.name}</THeaderCell>}
                   <TBodyCell>{variant}</TBodyCell>
-                  <TBodyCell>
-                    {c.renderComponent(variant, {})}
-                  </TBodyCell>
+                  <TBodyCell>{c.renderComponent(variant, {})}</TBodyCell>
                 </TRow>
               ))}
             </Fragment>
@@ -57,7 +57,7 @@ function App() {
 type ComponentType = {
   name: string
   variants: string[]
-  renderComponent: (variant: string, props: any) => ReactElement
+  renderComponent: (variant: string, props: any) => ReactNode
 }
 
 const components: ComponentType[] = [
@@ -73,10 +73,10 @@ const components: ComponentType[] = [
                 <FilledButton {...props} children="filled" />
               </ListItem>
               <ListItem>
-                <FilledButton icon={<Icon label='login'/>} {...props} children="filled"/>
+                <FilledButton icon={<Icon label="login" />} {...props} children="filled" />
               </ListItem>
               <ListItem>
-                <FilledButton icon={<Icon label='login'/>} {...props} children="filled" disabled/>
+                <FilledButton icon={<Icon label="login" />} {...props} children="filled" disabled />
               </ListItem>
             </List>
           )
@@ -89,10 +89,15 @@ const components: ComponentType[] = [
                 <OutlinedButton {...props} children="outlined" />
               </ListItem>
               <ListItem>
-                <OutlinedButton icon={<Icon label='login'/>} {...props} children="outlined"/>
+                <OutlinedButton icon={<Icon label="login" />} {...props} children="outlined" />
               </ListItem>
               <ListItem>
-                <OutlinedButton icon={<Icon label='login'/>} {...props} children="outlined" disabled/>
+                <OutlinedButton
+                  icon={<Icon label="login" />}
+                  {...props}
+                  children="outlined"
+                  disabled
+                />
               </ListItem>
             </List>
           )
@@ -102,13 +107,13 @@ const components: ComponentType[] = [
           return (
             <List>
               <ListItem>
-                <TextButton {...props} children="text"/>
+                <TextButton {...props} children="text" />
               </ListItem>
               <ListItem>
-                <TextButton icon={<Icon label='login'/>} {...props} children="text"/>
+                <TextButton icon={<Icon label="login" />} {...props} children="text" />
               </ListItem>
               <ListItem>
-                <TextButton icon={<Icon label='login'/>} {...props} disabled children="text"/>
+                <TextButton icon={<Icon label="login" />} {...props} disabled children="text" />
               </ListItem>
             </List>
           )
@@ -118,13 +123,13 @@ const components: ComponentType[] = [
           return (
             <List>
               <ListItem>
-                <TonalButton {...props} children="tonal"/>
+                <TonalButton {...props} children="tonal" />
               </ListItem>
               <ListItem>
-                <TonalButton icon={<Icon label='login'/>} {...props} children="tonal"/>
+                <TonalButton icon={<Icon label="login" />} {...props} children="tonal" />
               </ListItem>
               <ListItem>
-                <TonalButton icon={<Icon label='login'/>} {...props} disabled children="tonal"/>
+                <TonalButton icon={<Icon label="login" />} {...props} disabled children="tonal" />
               </ListItem>
             </List>
           )
@@ -134,13 +139,18 @@ const components: ComponentType[] = [
           return (
             <List>
               <ListItem>
-                <ElevatedButton {...props} children="elevated"/>
+                <ElevatedButton {...props} children="elevated" />
               </ListItem>
               <ListItem>
-                <ElevatedButton icon={<Icon label='login'/>} {...props} children="elevated"/>
+                <ElevatedButton icon={<Icon label="login" />} {...props} children="elevated" />
               </ListItem>
               <ListItem>
-                <ElevatedButton icon={<Icon label='login'/>} {...props} disabled children="elevated"/>
+                <ElevatedButton
+                  icon={<Icon label="login" />}
+                  {...props}
+                  disabled
+                  children="elevated"
+                />
               </ListItem>
             </List>
           )
@@ -191,7 +201,6 @@ const components: ComponentType[] = [
                 </Badge>
               </ListItem>
             </List>
-            
           )
         }
       }
@@ -202,25 +211,47 @@ const components: ComponentType[] = [
     name: 'FAB',
     variants: ['small', 'default', 'large'],
     renderComponent: (variant, props) => {
-      switch(variant) {
-
+      switch (variant) {
         case 'large': {
           return (
             <List>
               <ListItem>
-                <FAB loweredElevation size="large" color="primary" {...props} icon={<Icon label='edit'/>} />
+                <FAB
+                  loweredElevation
+                  size="large"
+                  color="primary"
+                  {...props}
+                  icon={<Icon label="edit" />}
+                />
               </ListItem>
               <ListItem>
-                <FAB loweredElevation size="large" color="secondary" {...props} icon={<Icon label='edit'/>} />
+                <FAB
+                  loweredElevation
+                  size="large"
+                  color="secondary"
+                  {...props}
+                  icon={<Icon label="edit" />}
+                />
               </ListItem>
               <ListItem>
-                <FAB loweredElevation size="large" color="tertiary" {...props} icon={<Icon label='edit'/>} />
+                <FAB
+                  loweredElevation
+                  size="large"
+                  color="tertiary"
+                  {...props}
+                  icon={<Icon label="edit" />}
+                />
               </ListItem>
               <ListItem>
-                <FAB loweredElevation size="large" color="surface" {...props} icon={<Icon label='edit'/>} />
+                <FAB
+                  loweredElevation
+                  size="large"
+                  color="surface"
+                  {...props}
+                  icon={<Icon label="edit" />}
+                />
               </ListItem>
             </List>
-            
           )
         }
 
@@ -228,16 +259,40 @@ const components: ComponentType[] = [
           return (
             <List>
               <ListItem>
-                <FAB loweredElevation size="small" color="primary" {...props} icon={<Icon label='edit'/>} />
+                <FAB
+                  loweredElevation
+                  size="small"
+                  color="primary"
+                  {...props}
+                  icon={<Icon label="edit" />}
+                />
               </ListItem>
               <ListItem>
-                <FAB loweredElevation size="small" color="secondary" {...props} icon={<Icon label='edit'/>} />
+                <FAB
+                  loweredElevation
+                  size="small"
+                  color="secondary"
+                  {...props}
+                  icon={<Icon label="edit" />}
+                />
               </ListItem>
               <ListItem>
-                <FAB loweredElevation size="small" color="tertiary" {...props} icon={<Icon label='edit'/>} />
+                <FAB
+                  loweredElevation
+                  size="small"
+                  color="tertiary"
+                  {...props}
+                  icon={<Icon label="edit" />}
+                />
               </ListItem>
               <ListItem>
-                <FAB loweredElevation size="small" color="surface" {...props} icon={<Icon label='edit'/>} />
+                <FAB
+                  loweredElevation
+                  size="small"
+                  color="surface"
+                  {...props}
+                  icon={<Icon label="edit" />}
+                />
               </ListItem>
             </List>
           )
@@ -246,23 +301,92 @@ const components: ComponentType[] = [
           return (
             <List>
               <ListItem>
-                <FAB color="primary" {...props} icon={<Icon label='edit'/>} />
+                <FAB color="primary" {...props} icon={<Icon label="edit" />} />
               </ListItem>
               <ListItem>
-                <FAB color="secondary" {...props} icon={<Icon label='edit'/>} />
+                <FAB color="secondary" {...props} icon={<Icon label="edit" />} />
               </ListItem>
               <ListItem>
-                <FAB color="tertiary" {...props} icon={<Icon label='edit'/>} />
+                <FAB color="tertiary" {...props} icon={<Icon label="edit" />} />
               </ListItem>
               <ListItem>
-                <FAB color="surface" {...props} icon={<Icon label='edit'/>} />
+                <FAB color="surface" {...props} icon={<Icon label="edit" />} />
               </ListItem>
             </List>
           )
         }
       }
-    }
-  }
+    },
+  },
+
+  {
+    name: 'ExtendedFAB',
+    variants: ['primary', 'surface', 'secondary', 'tertiary'],
+    renderComponent: (variant, props) => {
+      switch (variant) {
+        case 'primary':
+        case 'surface':
+        case 'secondary':
+        case 'tertiary': {
+          return <ExtendedFAB color={variant} icon={<Icon label="edit" />} label="Compose" />
+        }
+
+        default: {
+          return null
+        }
+      }
+    },
+  },
+
+  {
+    name: 'IconButton',
+    variants: ['standard', 'outlined', 'filled', 'tonal'],
+    renderComponent: (variant, props) => {
+      switch (variant) {
+        case 'standard':
+        case 'outlined':
+        case 'filled':
+        case 'tonal': {
+          return (
+            <div>
+              <p>No toggle</p>
+              <List>
+                <ListItem>
+                  <IconButton icon={<Icon label="favorite" />} variant={variant} />
+                </ListItem>
+                <ListItem>
+                  <IconButton icon={<Icon label="favorite" />} variant={variant} disabled />
+                </ListItem>
+              </List>
+              <hr/>
+              <p>Selected</p>
+              <List>
+                <ListItem>
+                  <IconButton icon={<Icon label="favorite" />} variant={variant} selected/>
+                </ListItem>
+                <ListItem>
+                  <IconButton icon={<Icon label="favorite" />} variant={variant} disabled selected/>
+                </ListItem>
+              </List>
+              <hr/>
+              <p>Unselected</p>
+              <List>
+                <ListItem>
+                  <IconButton icon={<Icon label="favorite" />} variant={variant} selected={false}/>
+                </ListItem>
+                <ListItem>
+                  <IconButton icon={<Icon label="favorite" />} variant={variant} disabled selected={false} />
+                </ListItem>
+              </List>
+            </div>
+          )
+        }
+        default: {
+          return null
+        }
+      }
+    },
+  },
 ]
 
 export default App

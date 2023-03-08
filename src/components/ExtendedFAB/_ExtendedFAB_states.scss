@@ -1,0 +1,34 @@
+.extended-fab {
+
+  transition: box-shadow 200ms ease;
+  box-shadow: var(--md-sys-elevation-3);
+
+  :global {
+    .state-overlay {
+      transition: opacity 200ms ease;
+    }
+  }
+
+  &:hover {
+    box-shadow: var(--md-sys-elevation-4);
+    :global {
+      .state-overlay {
+        opacity: 8%;
+      }
+    }
+  }
+
+  &:focus {
+    box-shadow: var(--md-sys-elevation-3);
+    :global {
+      .state-overlay {
+        opacity: 12%;
+      }
+    }
+  }
+
+  &:focus-visible {
+    outline-color: hsl(var(--md-sys-color-on-surface));
+    outline-offset: 2px;
+  }
+}

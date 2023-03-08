@@ -1,8 +1,8 @@
 import clsx from "clsx"
-import { forwardRef, HTMLAttributes, ReactNode } from "react"
-import styles from './ButtonBase.module.css'
+import { ButtonHTMLAttributes, forwardRef, HTMLAttributes, ReactNode } from "react"
+import styles from './ButtonBase.module.scss'
 
-export type ButtonBaseProps = HTMLAttributes<HTMLButtonElement> & {
+export type ButtonBaseProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   children?: ReactNode
 }
 

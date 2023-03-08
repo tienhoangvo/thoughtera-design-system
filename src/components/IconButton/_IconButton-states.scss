@@ -1,0 +1,83 @@
+.icon-button {
+  &:hover {
+    :global {
+      .state-overlay {
+        opacity: 8%;
+      }
+    }
+  }
+
+  &:focus {
+    :global {
+      .state-overlay {
+        opacity: 12%;
+      }
+    }
+  }
+
+  &:disabled {
+    :global {
+      .state-overlay {
+        background: hsl(var(--md-sys-state-disabled-container-color));
+        opacity: 12%;
+      }
+      .label,
+      .material-symbols-rounded {
+        color: hsl(var(--md-sys-state-disabled-container-color));
+        opacity: 32%;
+      }
+    }
+    cursor: not-allowed;
+  }
+}
+
+.variant-tonal {
+  &:disabled {
+    background: none;
+  }
+}
+
+.variant-filled {
+  &:disabled {
+    background: none;
+  }
+}
+
+.variant-outlined {
+  &:disabled {
+    :global {
+      border-color: var(--md-sys-state-disabled-container-color);
+      .state-overlay {
+        background: none;
+      }
+    }
+
+    &.selection-selected {
+      background: none;
+      border: none;
+      :global {
+        .state-overlay {
+          background: hsl(var(--md-sys-state-disabled-container-color));
+        }
+      }
+    }
+  }
+}
+
+.variant-standard {
+  &:disabled {
+    :global {
+      .state-overlay {
+        background: none;
+      }
+    }
+  }
+}
+
+.selection-selected {
+  :global {
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 100;
+    }
+  }
+}

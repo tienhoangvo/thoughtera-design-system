@@ -12,7 +12,6 @@ export type FABProps = HTMLAttributes<HTMLButtonElement> & {
 
 const FAB = ({ icon, size = 'medium', className, color, loweredElevation, ...rest }: FABProps) => {
   const classes = [styles['fab'], styles[`size-${size}`], styles[`color-${color}`]]
-  console.log({ loweredElevation })
   if (loweredElevation) {
     classes.push(styles['elevation-lowered'])
   }

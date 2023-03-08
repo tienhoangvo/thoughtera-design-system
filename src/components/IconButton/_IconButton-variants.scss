@@ -1,0 +1,72 @@
+.icon-button {
+  --md-icon-button-icon-color: unset;
+  --md-icon-button-container-color: unset;
+
+  --md-icon-button-icon-color-selected: unset;
+  --md-icon-button-container-color-selected: unset;
+
+  background: var(--md-icon-button-container-color);
+  border: none;
+  cursor: pointer;
+
+  :global {
+    .state-overlay {
+      background: var(--md-icon-button-icon-color);
+    }
+    .material-symbols-rounded {
+      color: var(--md-icon-button-icon-color);
+    }
+  }
+}
+
+.variant-filled {
+  --md-icon-button-icon-color: hsl(var(--md-sys-color-on-primary));
+  --md-icon-button-container-color: hsl(var(--md-sys-color-primary));
+
+  &.selection-selected {
+    --md-icon-button-icon-color: hsl(var(--md-sys-color-on-primary));
+    --md-icon-button-container-color: hsl(var(--md-sys-color-primary));
+  }
+
+  &.selection-unselected {
+    --md-icon-button-icon-color: hsl(var(--md-sys-color-primary));
+    --md-icon-button-container-color: hsl(var(--md-sys-color-surface-variant));
+  }
+}
+
+.variant-tonal {
+  --md-icon-button-icon-color: hsl(var(--md-sys-color-on-secondary-container));
+  --md-icon-button-container-color: hsl(var(--md-sys-color-secondary-container));
+
+  &.selection-selected {
+    --md-icon-button-icon-color: hsl(var(--md-sys-color-on-secondary-container));
+    --md-icon-button-container-color: hsl(var(--md-sys-color-secondary-container));
+  }
+
+  &.selection-unselected {
+    --md-icon-button-icon-color: hsl(var(--md-sys-color-on-surface-variant));
+    --md-icon-button-container-color: hsl(var(--md-sys-color-surface-variant));
+  }
+}
+
+.variant-outlined {
+  --md-icon-button-icon-color: hsl(var(--md-sys-color-on-surface-variant));
+  --md-icon-button-icon-container-outline-color: hsl(var(--md-sys-color-outline));
+  border: 1px solid var(--md-icon-button-icon-container-outline-color);
+
+  &.selection-selected {
+    --md-icon-button-icon-color: hsl(var(--md-sys-color-inverse-on-surface));
+    --md-icon-button-container-color: hsl(var(--md-sys-color-inverse-surface));
+    --md-icon-button-icon-container-outline-color: hsl(var(--md-sys-color-inverse-surface));
+  }
+
+  &.selection-unselected {
+    --md-icon-button-icon-color: hsl(var(--md-sys-color-on-surface-variant));
+    --md-icon-button-container-color: none;
+  }
+}
+
+.variant-standard {
+  --md-icon-button-icon-color: hsl(var(--md-sys-color-on-surface-variant));
+  --md-icon-button-icon-color-selected: hsl(var(--md-sys-color-primary));
+}
